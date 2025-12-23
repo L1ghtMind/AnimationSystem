@@ -15,7 +15,15 @@ file(GLOB_RECURSE SOURCES
 )
 
 add_subdirectory(dependencies/glad)
+add_subdirectory(dependencies/glfw)
+
 add_executable(${PROJECT_NAME} ${SOURCES})
+
+# ---- Link libraries ----
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    glad
+    glfw
+)
 
 # Link dependencies
 target_link_libraries(${PROJECT_NAME} PRIVATE glad)
